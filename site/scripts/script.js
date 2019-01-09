@@ -90,7 +90,7 @@ var idKey = 'cognito-idp.ap-southeast-2.amazonaws.com/' + userPoolId
 var cognitoUser = userPool.getCurrentUser();
 
 // Validation parameters
-var sourceFileName = "OUA GoodData Provider Access List.xlsx";
+var sourceFileName = "data.csv";
 var sizeLimit = 300;
 
 function setCredential() {
