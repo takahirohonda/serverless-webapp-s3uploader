@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Uploader</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="body" style="visibility:hidden">
+    <!-- nav bar-->
+    <nav class="navbar navbar-expand-lg navbar-static-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+              <img src="img/logo.png" title="logo" id="logo"/>
+                <b id="brand-title">MyDataHack</b>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="Navbar">
+                <ul class="navbar-nav ml-auto nav">
+                    <li class="nav-list"><button class="btn btn-dark btn-nav" onclick="logOut();">Sign out</button></li>
+                </ul>
+            </div>
+    </nav>
+
+    <!-- Uploader -->
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                    <h1 class="upload-title">File Uploader</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="img/s3.svg" title="s3 bucket" id="s3-img"/>
+                    <p class="lead">Upload an excel file to S3 bucket.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group upload-form">
+                        <div class="input-group-prepend">
+                            <span type="button" class="btn btn-custom" id="uploadButton" onclick="uploadS3();">Upload</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="form-control-file" id="fileinput" aria-describedby="fileinput" onChange="addFileName();">
+                            <label class="custom-file-label" for="fileinput" id="fileName">Choose file</label>
+                        </div>
+                    </div>
+                </div>
+            </div>         
+        </div>
+    </div>
+    
+    <div id="modal-message"></div>
+
+
+    <!-- Importing scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="scripts/lib/amazon-cognito-identity.min.js"></script>
+    <script src="scripts/lib/aws-sdk.min.js"></script>
+    <script src="scripts/script.js"></script>
+    <!-- <script src="scripts/ajaxCallExample.js"></script> -->
+    <script type="text/javascript">
+        $(function(){
+            checkLogin(false, true);
+            setCredential();
+            // ajaxCall(false);
+        })           
+    </script>
+</body>
+</html>
