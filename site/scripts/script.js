@@ -82,6 +82,9 @@ function addFileName () {
 // Setting credentials for IAM role to upload files to S3
 var bucketName = 'lambda.test.source';
 var bucketRegion = 'ap-southeast-2'; 
+// IdentityPoolId: Go to Cognito Console -> Manage Identity Pool 
+// -> Click the name of the pool above the title(e.g. S3Uploader)
+// -> Sample Code on the left column -> It will be in Get Credential section.
 var IdentityPoolId = bucketRegion + ':cc5fc0eb-9dc7-48b7-823d-f6988445ede5'
 var idKey = 'cognito-idp.ap-southeast-2.amazonaws.com/' + userPoolId
 var cognitoUser = userPool.getCurrentUser();
